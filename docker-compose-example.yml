@@ -1,8 +1,6 @@
 services:
-
   api:
-    build:
-      context: ./backend
+    image: ghcr.io/ungaul/applicator-api:latest
     restart: unless-stopped
     ports:
       - "8001:80"
@@ -16,10 +14,7 @@ services:
       - ./backend/scrapers:/app/scrapers
 
   app:
-    build:
-      context: ./frontend
-      args:
-        - VITE_API_URL=http://localhost:8001
+    image: ghcr.io/ungaul/applicator-app:latest
     restart: unless-stopped
     ports:
       - "3001:80"
