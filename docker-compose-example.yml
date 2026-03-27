@@ -1,6 +1,7 @@
 services:
   api:
     image: ghcr.io/ungaul/applicator-api:latest
+    container_name: applicator-api
     restart: unless-stopped
     ports:
       - "8001:80"
@@ -13,6 +14,7 @@ services:
 
   app:
     image: ghcr.io/ungaul/applicator-app:latest
+    container_name: applicator-app
     restart: unless-stopped
     ports:
       - "3001:80"
