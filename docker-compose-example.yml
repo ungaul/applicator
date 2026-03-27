@@ -10,8 +10,6 @@ services:
       - ADZUNA_APP_ID=xxx
       - ADZUNA_APP_KEY=xxx
       - JOB_SEARCHES=10
-    volumes:
-      - ./backend/scrapers:/app/scrapers
 
   app:
     image: ghcr.io/ungaul/applicator-app:latest
