@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+requests
+beautifulsoup4
+lxml
+python-multipart
+httpx
+python-docx
+python-dotenv

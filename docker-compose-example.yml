@@ -1,0 +1,27 @@
+services:
+
+  api:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    ports:
+      - "8001:80"
+    environment:
+      - OPENROUTER_API_KEY=sk-or-xxxxx
+      - OPENROUTER_MODEL=openai/gpt-4.1-mini
+      - ADZUNA_APP_ID=xxx
+      - ADZUNA_APP_KEY=xxx
+      - JOB_SEARCHES=10
+    volumes:
+      - ./backend/scrapers:/app/scrapers
+
+  app:
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_URL=http://localhost:8001
+    restart: unless-stopped
+    ports:
+      - "3001:80"
+    depends_on:
+      - api
